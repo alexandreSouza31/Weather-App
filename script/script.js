@@ -8,11 +8,12 @@ const apiKey = "5455717c09524f86829bfe631bb63ec0";
 const city_input = document.querySelector(".city_input");
 const search_btn = document.querySelector("#search");
 
-const city = document.querySelector(".city");
-// const temp = document.querySelector(".temperature span");
-// const wind = document.querySelector(".wind span");
-// const umidity = document.querySelector(".umidity span");
-// const desc = document.querySelector(".description");
+const city_element = document.querySelector(".city");
+const temp_element = document.querySelector(".temperature span");
+const wind_element = document.querySelector(".wind span");
+const umidity_element = document.querySelector(".umidity span");
+const desc_element = document.querySelector(".description");
+const weather_icon = document.querySelector(".weather_icon");
 
 //pega os dados do clima da api. Vai ser assíncrona, pq pode demorar pra responder
 const getWeatherData = async (city) => {
@@ -26,19 +27,29 @@ const getWeatherData = async (city) => {
     // ele chega em json, vou transformar em objeto javascript:
     const data = await res.json();
 
-    console.log("esse é o data", data)
-    //apiWeatherUrl(city)
+    //console.log("esse é o data", data)
+    //agr vou dar retorno na data pra usar esse retorno em outra função:
+    return data;
+};
+//como a get é assíncrona, a show tbm precisa ser, pra não receber uma promisse:
+const showWeatherData = async(city) => {
+    const data = await getWeatherData(city);
+    //pra pegar esses objetos acesso o devTools, Rede e a tarefa do weather aparecerá lá.
+    city_element.innerText = `${data.name}, ${data.sys.country}`;//esse name vem do objeto da api
+    temp_element.innerText = parseInt(data.main.temp);//pro valor aparecer inteiro
+    wind_element.innerText = `${data.wind.speed} Km/h`;
+    umidity_element.innerText = `${data.main.humidity} %`;
+    desc_element.innerText = `${data.weather[0].description}`;
+    weather_icon.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
 };
 
-const showWeatherData = (city) => {
-    getWeatherData(city);
-};
+
 
 search_btn.addEventListener("click", (e) => {
     e.preventDefault();
-
     const city=city_input.value;
     showWeatherData(city);
+    console.log(city.value)
 });
 
 
