@@ -3,10 +3,17 @@ link:https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=
 key:5455717c09524f86829bfe631bb63ec0                   */
 
 const apiKey = "5455717c09524f86829bfe631bb63ec0";
-// const apiCountryImg = "https://www.countryflagicons.com/FLAT/64/png";
+const apiCountryImg = "https://www.countryflagicons.com/FLAT/64/png";
 
+const container = document.querySelector(".container");
+const weather = document.querySelector(".weather");
 const city_input = document.querySelector(".city_input");
 const search_btn = document.querySelector("#search");
+
+// const h3 = document.querySelector(".h3");
+// const placeIcon = document.createElement("i");
+// placeIcon.classList="";
+// placeIcon.appendChild(h3)
 
 const city_element = document.querySelector(".city");
 const temp_element = document.querySelector(".temperature span");
@@ -35,23 +42,47 @@ const getWeatherData = async (city) => {
 const showWeatherData = async(city) => {
     const data = await getWeatherData(city);
     //pra pegar esses objetos acesso o devTools, Rede e a tarefa do weather aparecerá lá.
+
+    const api_flag = document.querySelector(".api_flag");
+    const api_nationality = data.sys.country;
+    api_flag.setAttribute("alt", "bandeira do país")
+    api_flag.setAttribute("src", `https://www.countryflagicons.com/SHINY/64/${api_nationality}.png`)
+
     city_element.innerText = `${data.name}, ${data.sys.country}`;//esse name vem do objeto da api
-    temp_element.innerText = parseInt(data.main.temp);//pro valor aparecer inteiro
-    wind_element.innerText = `${data.wind.speed} Km/h`;
-    umidity_element.innerText = `${data.main.humidity} %`;
+    temp_element.innerText = `${Math.round(data.main.temp)}°C`;//pro valor aparecer inteiro
+    wind_element.innerText = `vento: ${data.wind.speed} Km/h`;
+    umidity_element.innerText = `umidade: ${data.main.humidity}%`;
+    desc_element.setAttribute("alt","condição climática")
     desc_element.innerText = `${data.weather[0].description}`;
-    weather_icon.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+    
+    let icon = data.weather[0].icon;
+    weather_icon.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    //getIcon(icon)
 };
-
-
 
 search_btn.addEventListener("click", (e) => {
     e.preventDefault();
-    const city=city_input.value;
+    const city = city_input.value;
+    weather.style.display = "flex";
     showWeatherData(city);
-    console.log(city.value)
 });
 
+// function getIcon(icon) {
+    
+//     container.style.backgroundColor = ""
+//     search_btn.style.backgroundColor = ""
 
+//     if (icon == "04d") {
+//         container.style.backgroundColor = "red"
+//         console.log("Caiu no if")
+//         console.log(icon)
+//     }if (icon == "03d") {
+//         container.style.backgroundColor = "green"
+//         console.log("Caiu no if")
+//         console.log(icon)
+//     } else {
+//         search_btn.style.backgroundColor = "blue"
+//         console.log(icon)
 
-
+//     }
+// }
