@@ -19,7 +19,7 @@ body {
 
 h1 {
     color: whitesmoke;
-    border-bottom: 1px solid whitesmoke;
+    box-shadow: 2px 2px 15px rgba(77, 77, 77, .5);
     width: 100%;
     padding: 1% 0;
     justify-content: center;
@@ -64,6 +64,13 @@ h1 {
     color: rgb(186, 186, 186);
   }
 
+  .city_input:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    box-shadow: 2px 2px 15px rgba(77, 77, 77, .5);
+    outline: 0;
+}
+
 .city_input,
 #search {
     margin-top: 8px;
@@ -103,6 +110,7 @@ h1 {
 }
 i{
     margin-right: 5px;
+    color: whitesmoke;
 }
 .country {
     height: 50%;

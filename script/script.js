@@ -48,6 +48,7 @@ const showWeatherData = async (city) => {
     api_flag.setAttribute("src", `https://www.countryflagicons.com/SHINY/64/${api_nationality}.png`)
 
     city_element.innerText = `${data.name}`;//esse name vem do objeto da api
+    city_element.style.color = "whitesmoke";
     temp_element.innerText = `${Math.round(data.main.temp)}°C`;//pro valor aparecer arredondado pra cima
     wind_element.innerText = `vento: ${data.wind.speed} Km/h`;
     umidity_element.innerText = `umidade: ${data.main.humidity}%`;
@@ -90,8 +91,7 @@ feedbackError.addEventListener("click", () => {
 //desaparecer a msg de erro pelo clique no input
 city_input.addEventListener("click", () => {
     feedbackError.classList.remove("showError");
-    feedbackError.style.display = "none"
-
+    feedbackError.style.display = "none";
 })
 
 
