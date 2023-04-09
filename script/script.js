@@ -1,7 +1,3 @@
-/*api open weather pra testar eu uso o link com a key oferecida no menu "minhas keys" no site:
-link:https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=
-key:5455717c09524f86829bfe631bb63ec0                   */
-
 const apiKey = "5455717c09524f86829bfe631bb63ec0";
 const apiCountryImg = "https://www.countryflagicons.com/FLAT/64/png";
 
@@ -33,9 +29,6 @@ const getWeatherData = async (city) => {
     // ele chega em json, vou transformar em objeto javascript:
     const data = await res.json();
 
-    // feedbackError.style.display = "none";
-    // feedbackError.classList.remove("showError");
-
     if (data?.cod && data.cod === "404") {
         return errorMsg("Cidade não encontrada. Verifique a grafia")
     }
@@ -54,8 +47,7 @@ const showWeatherData = async (city) => {
     api_flag.setAttribute("alt", "bandeira do país")
     api_flag.setAttribute("src", `https://www.countryflagicons.com/SHINY/64/${api_nationality}.png`)
 
-    city_element.innerText = `${data.name}, ${data.sys.country}`;//esse name vem do objeto da api
-    // city_element.innerText = `${data.name}`;//esse name vem do objeto da api
+    city_element.innerText = `${data.name}`;//esse name vem do objeto da api
     temp_element.innerText = `${Math.round(data.main.temp)}°C`;//pro valor aparecer arredondado pra cima
     wind_element.innerText = `vento: ${data.wind.speed} Km/h`;
     umidity_element.innerText = `umidade: ${data.main.humidity}%`;
@@ -64,6 +56,8 @@ const showWeatherData = async (city) => {
 
     let icon = data.weather[0].icon;
     weather_icon.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    weather_icon.classList.add("desc_element_style");
+
 };
 
 search_btn.addEventListener("click", (e) => {
