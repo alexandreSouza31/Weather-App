@@ -18,8 +18,8 @@ Project that shows the current weather of a city consuming an api
 
 ### Screenshot
 
-![error_web](https://user-images.githubusercontent.com/112407769/230801588-167592ab-5335-4668-9fed-14de520dc92f.png)
 ![search_web](https://user-images.githubusercontent.com/112407769/230801591-f10148ae-5e4e-4c78-9037-12742cedfaf3.png)
+![error_web](https://user-images.githubusercontent.com/112407769/230801588-167592ab-5335-4668-9fed-14de520dc92f.png)
 ![search_mobile](https://user-images.githubusercontent.com/112407769/230801593-38c5139e-21a6-4f0d-82de-a278c93a03c2.png)
 
 ## My process
