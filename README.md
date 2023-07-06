@@ -101,9 +101,10 @@ Using data from an api, clean code, refactoring.
 
 ### How to run the code
 
-Click the green button to download the code files to your PC and run the index.html file.
+ Clonando/baixando o projeto
 
-Or open it in deploy to test the features: https://to-do-list-ten-bay.vercel.app/
+ Digite o comando ```git clone https://github.com/alexandreSouza31/weather-tool``` no terminal, ou se preferir, baixe clicando no botão verde chamado "Code" no repositório deste projeto, e em seguida, "Download zip.
+
 
 :)
 
