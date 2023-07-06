@@ -105,6 +105,7 @@ Using data from an api, clean code, refactoring.
 
  Enter the command ```git clone https://github.com/alexandreSouza31/weather-tool``` in the terminal, or if you prefer, download it by clicking on the green button called "Code" in this project's repository, and then, "Download zip.
 
+run index.html
 
 :)
 
