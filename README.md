@@ -12,6 +12,7 @@ Project that shows the current weather of a city consuming an api
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
+  - [How to run the code](#How-to-run-the-code)
   - [Author](#author)
 
 ## Overview
@@ -97,6 +98,14 @@ Using data from an api, clean code, refactoring.
 ### Useful resources
 
 - [Openweathermap](https://openweathermap.org/) - helped me with the api I used to return the data
+
+### How to run the code
+
+Click the green button to download the code files to your PC and run the index.html file.
+
+Or open it in deploy to test the features: https://to-do-list-ten-bay.vercel.app/
+
+:)
 
 ## Author
 - LinkdIn - Alexandre Mariano(https://www.linkedin.com/in/alexandresouza31/)
