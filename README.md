@@ -107,6 +107,12 @@ Using data from an api, clean code, refactoring.
 
 run index.html
 
+
+#### Deploy
+
+If you want to see the application running without having to download it, go to
+- [Vercel](https://weather-tool.vercel.app/) - Website used to host the application.
+
 :)
 
 ## Author
